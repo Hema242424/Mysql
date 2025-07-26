@@ -1,0 +1,14 @@
+step 1:- Stop the MySQL services
+step 2:- create a data directory (ex:- C:\ProgramData\MySQL\MySQL Server 8.4\Data2)
+step 3:- create a copy of cnf file (ex:- my2.ini)
+step 4:- change the configuration -->
+	my.ini----> server-id=1,port=3306,datadir=C:\ProgramData\MySQL\MySQL Server 8.4\Data)
+	my2.ini---> server-id=2,port=3307,datadir=C:\ProgramData\MySQL\MySQL Server 8.4\Data2)
+step 5:-  installed 2nd instance:-
+	mysqld --initialize-insecure --datadir="C:\ProgramData\MySQL\MySQL Server 8.4\Data2"
+
+	mysqld --install "mysql_2" --defaults-file="C:\ProgramData\MySQL\MySQL Server 8.4\my2.ini"
+step 6:- start mysqld
+	net start mysql_2
+step 7:- login to second instance
+	mysql -uroot --port=3307
